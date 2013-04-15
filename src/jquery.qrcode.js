@@ -11,6 +11,8 @@
 			render		: "canvas",
 			width		: 256,
 			height		: 256,
+            left        : 0,
+            top         : 0,
 			typeNumber	: -1,
 			correctLevel	: QRErrorCorrectLevel.H,
                         background      : "#ffffff",
@@ -41,8 +43,8 @@
 					ctx.fillStyle = qrcode.isDark(row, col) ? options.foreground : options.background;
 					var w = (Math.ceil((col+1)*tileW) - Math.floor(col*tileW));
 					var h = (Math.ceil((row+1)*tileW) - Math.floor(row*tileW));
-					ctx.fillRect(Math.round(col*tileW),Math.round(row*tileH), w, h);  
-				}	
+					ctx.fillRect(Math.round(options.left + col*tileW),Math.round(options.top + row*tileH), w, h);  
+				}
 			}
 			// return just built canvas
 			return canvas;
